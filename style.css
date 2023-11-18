@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+    color: #ededed;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.25rem 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    position: relative;
+    font-size: 1.5625rem;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay: .4s;
+}
+
+.navbar a {
+    font-size: 1.125rem;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.1875rem;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;
+}
+
+.home {
+    height: 100vh;
+    background: url('./home.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content {
+    /* point to be noted that here position is static, not relative or absoulte - THAT'S WHY WIDTH AFTER PADDING IS TAKEN FOR CALCULATION */
+    max-width: 48%; /* this percentage came from whole screen width's 48%.
+    As home.content div is inisde home section tag whose width is full screen. But later downward, You see interesting case */
+}
+
+.home-content h1 {
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.home-content h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content h3 {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00abf0;
+}
+
+.home-content h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+.home-content p {
+    position: relative;
+    font-size: 1rem;
+    margin: 1.25rem 0 2.5rem;
+}
+
+.home-content p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.home-content .btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 59%;  /* here whatever percentage of width we write will be given or alloted according to max-width of home-content div 
+    but we were alloting 28% width by calculating it against full screen width. That was wrong formula 
+    this percentage came from calculation width of 345px according to what max-width alloted to its parent div that is home-content div. You can't calculate it according to full screen width */
+    height: 3.125rem; /* height is tricky because no max-height mentioned of parent div so used rem 
+    as it will take font-size of letter as height be of any percentage till 100% */
+}
+
+.home-content .btn-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.9s;
+    z-index: 2;
+}
+
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 43%;
+    height: 100%;
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: .5rem;
+    font-size: 1.25rem;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box a:hover {
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #081b29;
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #00abf0;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute; /* before & after element always form inside that element
+    that is why position is absolute while .btn-box a has position relative*/
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1; /* z-index works on text to upbring it not on background upbringing as before element background comes first 
+    after that actual background of '.btn-box a' comes*/
+    transition: .5s;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}
+
+.home-sci {
+    /* POINT TO BE NOTED THAT HERE POSITION IS ABSOLUTE THAT IS WHY NO PADDING IS TAKEN INTO CONSIDERATION WHEN CALCULATING WIDTH
+    THAT IS WHY WHOLE SCREEN WIDTH IS TAKEN */
+    position: absolute;
+    bottom: 8.71%;
+    width: 11.1%;
+    display: flex;
+    justify-content: space-between;
+}
+.home-sci::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay: 2.5s;
+    z-index: 2;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.home-sci a:hover {
+    color: #081b29;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    width: 39%;
+    height: 100%;
+    background: transparent;
+    transition: 3s;
+    animation: manipActiveHover .1s forwards;
+    animation-delay: 4s;
+    pointer-events: none;
+}
+
+.home-imgHover:hover {
+    background: #081b29;
+    opacity: 0.8;
+}
+
+.home-imgHover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 110%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay: 3s;
+    z-index: 100;
+}
+
+
+/* KEYFRAMES ANIMATION */
+@keyframes showRight {
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes manipActiveHover {
+    100% {
+        pointer-events: auto;
+    }
+}
+
+
+#button {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 1000;
+  }
+  
+  #button i {
+    
+    font-size: 2em;
+    color: #fff;
+  }
+  
+
+
+/* TO MAKE IMAGE FLICKER OR CHANGE OPACITY INFINITELY ON ITS OWN CONTINOUSLY WITHOUT USING HOVER 
+
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    width: 39%;
+    height: 100%;
+    background: #081b29;
+    animation: manipActiveHover 4s infinite;
+}
+
+@keyframes manipActiveHover {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.2;
+    }
+    35% {
+        opacity: 0.4;
+    }
+    45% {
+        opacity: 0.6;
+    }
+    60% {
+        opacity: 0.8;
+    }
+    70% {
+        opacity: 0.7;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    70% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 0.1;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+    opacity: 0;
+    }
+}
+*/
